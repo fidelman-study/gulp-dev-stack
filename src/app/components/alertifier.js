@@ -17,7 +17,8 @@ export default function Alertifier(container) {
 
     // Private constants
     const MESSAGE_BEFORE = 'You clicked';
-    const MESSAGE_AFTER = 'To make buttons work again, run app.alertifiers[<index of the button>].destroy() in the console.';
+    const MESSAGE_AFTER = `To make buttons work again, run
+        app.alertifiers[<index of the button>].destroy() in the console.`;
 
     container.addEventListener(EVENT, handleClick);
 
