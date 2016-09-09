@@ -3,6 +3,7 @@ const argv = require('yargs').argv;
 const gulpif = require('gulp-if');
 const eslint = require('gulp-eslint');
 const gulpStylelint = require('gulp-stylelint');
+const getConfig = require('eslint-config-actum').getConfig;
 const config = require('../config');
 
 // const { gulpfile, src } = config.paths;
@@ -11,14 +12,8 @@ const src = config.paths.src;
 const isDev = argv.dev || false;
 
 const lint = (globs) => {
-    const opts = isDev ? {
-        'rules': {
-            'no-empty': 0,
-            'space-in-parens': 0,
-            'no-unused-vars': 0,
-            'no-multiple-empty-lines': 0
-        }
-    } : {};
+    const opts = getConfig({ isDev });
+
     return gulp.src(globs)
         .pipe(eslint(opts))
         .pipe(eslint.format())

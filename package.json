@@ -9,7 +9,10 @@
     "build": "gulp build",
     "precommit-msg": "echo 'Running build task...' && exit 0"
   },
-  "pre-commit": ["precommit-msg", "build"],
+  "pre-commit": [
+    "precommit-msg",
+    "build"
+  ],
   "babel": {
     "presets": [
       "react",
@@ -17,58 +20,7 @@
     ]
   },
   "eslintConfig": {
-    "env": {
-      "es6": true,
-      "browser": true,
-      "node": true,
-      "jquery": true
-    },
-    "parserOptions": {
-      "ecmaVersion": 6,
-      "ecmaFeatures": {
-        "jsx": true
-      },
-      "sourceType": "module"
-    },
-    "rules": {
-      "semi": 2,
-      "quotes": [
-        2,
-        "single"
-      ],
-      "strict": [
-        2,
-        "never"
-      ],
-      "keyword-spacing": 2,
-      "one-var": [
-        2,
-        "never"
-      ],
-      "no-empty": 2,
-      "space-in-parens": [
-        2,
-        "never"
-      ],
-      "space-before-function-paren": [
-        2,
-        "never"
-      ],
-      "no-spaced-func": 2,
-      "no-multiple-empty-lines": [
-        2,
-        {
-          "max": 1
-        }
-      ],
-      "linebreak-style": [
-        2,
-        "unix"
-      ],
-      "indent": [
-        2
-      ]
-    }
+    "extends": "actum"
   },
   "stylelint": {
     "extends": "stylelint-config-standard",
@@ -92,6 +44,7 @@
     "cssnano": "^3.3.1",
     "del": "^2.0.2",
     "envify": "^3.4.0",
+    "eslint-config-actum": "github:kettanaito/eslint-config-actum",
     "glob": "^5.0.15",
     "gulp": "^3.9.0",
     "gulp-css-globbing": "^0.1.8",
